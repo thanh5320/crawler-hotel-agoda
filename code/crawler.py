@@ -198,7 +198,6 @@ def getInfor(link):
     dict["link"] = link
     hash_id = hashlib.md5(link.encode())
     dict["id"]=hash_id.hexdigest()
-    print(dict)
     return dict
 
 links = pd.read_csv("/home/thanhnv/Desktop/python-crawler-hotel/data/input/linkHotel.csv")
@@ -206,6 +205,7 @@ links = links["link"]
 toppic_es = {"index": {"_index": "hotel"}}
 toppic_es_json = json.dumps(toppic_es)
 for link in links:
+    print(link)
     data=getInfor(link)
     if data == None:
         print(data) 
